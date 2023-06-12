@@ -13,7 +13,7 @@
             "name": "xqkeji.cn"
         }
     ],
-    "extra": {
-        
+    "require": {
+        "xqkeji/xq-app-admin":"^1.0"
     }
 }
