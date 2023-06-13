@@ -33,7 +33,7 @@ class Move extends Action
 				{
 					throw new \Exception(App::t("the category is not found!"),404);
 				}
-				call_user_func_array([$row, "move"], [$id,$parent_id,$next_id]);
+				call_user_func_array([$row, "move"], [$parent_id,$next_id]);
 			}
 			else
 			{
