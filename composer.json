@@ -13,6 +13,13 @@
             "name": "xqkeji.cn"
         }
     ],
+    "extra": {
+        "post-package-install":[
+            {
+                "cmd":["xqkeji\\app\\content\\composer\\Install","postInstall"]
+            }
+        ]
+    },
     "require": {
         "xqkeji/xq-app-admin":"^1.0"
     }
