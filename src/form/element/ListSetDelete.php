@@ -7,6 +7,13 @@ return [
 	[
 		[
 			'button',
+			'attr_class'=>'btn btn-primary btn-sm xq-copy',
+			'attr_style'=>'margin-right:5px;',
+			'attr_value'=>'复制',
+			
+		],
+		[
+			'button',
 			'attr_id'=>'xq-treegrid-edit',
 			'attr_class'=>'btn btn-primary btn-sm xq-edit',
 			'attr_style'=>'margin-right:5px;',

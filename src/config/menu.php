@@ -5,12 +5,12 @@ return [
 		[
 			'url'=>'category/admin',
 			'title'=>'信息栏目管理',
-			'icon'=>'fas fa-cogs',
+			'icon'=>'bi bi-list-ul',
 		],
 		[
 			'url'=>'category/submenu',
 			'title'=>'信息管理',
-			'icon'=>'fas fa-info-circle',
+			'icon'=>'bi bi-info-circle-fill',
 			'submenu'=>true,
 		],
 		
