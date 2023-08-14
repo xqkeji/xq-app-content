@@ -31,7 +31,7 @@ class Move extends Action
 				$row =call_user_func_array([$model, "find"], [$id]);
 				if(empty($row))
 				{
-					throw new \Exception(App::t("the category is not found!"),404);
+					throw new \Exception(App::t("the category is not found"),404);
 				}
 				call_user_func_array([$row, "move"], [$parent_id,$next_id]);
 			}
@@ -54,7 +54,7 @@ class Move extends Action
 		}
 		else
 		{
-			throw new \Exception(App::t("no data posted"),500);
+			throw new \Exception(App::t("no request data"),500);
 		}
 		
 	}

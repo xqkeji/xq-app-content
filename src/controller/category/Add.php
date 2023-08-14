@@ -62,7 +62,7 @@ class Add extends Action
 		}
 		else
 		{
-			throw new \Exception(App::t("no data posted"),500);
+			throw new \Exception(App::t("no request data"),500);
 		}
 		
 	}
