@@ -21,6 +21,8 @@
         ]
     },
     "require": {
-        "xqkeji/xq-app-admin":"^1.0"
+        "xqkeji/xq-app-admin":"^1.0",
+        "xqkeji/xq-com-treegrid":"^1.0",
+        "xqkeji/xq-com-tinymce":"^1.0"
     }
 }
