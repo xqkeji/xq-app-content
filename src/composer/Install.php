@@ -40,6 +40,91 @@ class Install
                 }
                 $mustInsert=true;
                 $manager = new Manager($uri,['serverSelectionTryOnce'=>false,'serverSelectionTimeoutMS'=>500,'connectTimeoutMS'=>500]);
+                 //创建索引
+                 $cmd = new Command([
+                    // 集合名
+                    'createIndexes' => 'content_category',
+                    'indexes' => [
+                        [
+                            // 索引名
+                            'name' => 'content_category_name',
+                            // 索引字段数组
+                            'key' => [
+                                'name' => 1
+                            ],
+                            'unique'=>false,
+                        ],
+                    ],
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                if (!empty($result)) {
+                    $ok = intval($result[0]->ok);
+                    if($ok>0)
+                    {
+                        echo "创建内容栏目集合name字段普通索引成功！\r\n";
+                    }
+                    else
+                    {
+                        echo "创建内容栏目集合name字段普通索引失败！\r\n";
+                    }
+                }
+                $cmd = new Command([
+                    // 集合名
+                    'createIndexes' => 'content_category',
+                    'indexes' => [
+                        [
+                            // 索引名
+                            'name' => 'content_category_name_parent_id',
+                            // 索引字段数组
+                            'key' => [
+                                'name' => 1,
+                                'parent_id'=>1,
+                            ],
+                            'unique'=>false,
+                        ],
+                    ],
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                if (!empty($result)) {
+                    $ok = intval($result[0]->ok);
+                    if($ok>0)
+                    {
+                        echo "创建内容栏目集合name和parent_id字段联合索引成功！\r\n";
+                    }
+                    else
+                    {
+                        echo "创建内容栏目集合name和parent_id字段联合索引失败！\r\n";
+                    }
+                }
+                $cmd = new Command([
+                    // 集合名
+                    'createIndexes' => 'content_content',
+                    'indexes' => [
+                        [
+                            // 索引名
+                            'name' => 'content_content_cat_id',
+                            // 索引字段数组
+                            'key' => [
+                                'cat_id' => 1,
+                            ],
+                            'unique'=>false,
+                        ],
+                    ],
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                if (!empty($result)) {
+                    $ok = intval($result[0]->ok);
+                    if($ok>0)
+                    {
+                        echo "创建内容集合cat_id字段索引成功！\r\n";
+                    }
+                    else
+                    {
+                        echo "创建内容集合cat_id字段索引失败！\r\n";
+                    }
+                }
+                //end
+                //创建根节点
                 $id = new ObjectId("58514b454a495f524f4f5430");
                 $filter = ['_id' => $id];
                 $cmd = new Command([
