@@ -1,7 +1,13 @@
 <?php
 namespace xqkeji\app\content\model\Data;
+use xqkeji\App;
 class Data
 {
+    public static function getRegCatId(string $cat_name)
+    {
+        $reg=App::getReg();
+        return $reg->get($cat_name.'_content_cat_id');
+    }
     public static function getByCatName(string $cat_name,int $limit=5,array $order=['create_time'=>'desc'])
     {
         $category=Model::getModel('category','content');
@@ -11,7 +17,9 @@ class Data
         $data=[];
         if($cat)
         {
-            $cat_id=$cat->getKey();
+            $cat_id=(string)$cat->getKey();
+            $reg=App::getReg();
+            $reg->set($cat_name.'_content_cat_id',$cat_id);
             $data=self::getByCatId($cat_id,$limit,$order);  
         }
         return $data;
@@ -48,7 +56,9 @@ class Data
         $data=[];
         if($cat)
         {
-            $cat_id=$cat->getKey();
+            $cat_id=(string)$cat->getKey();
+            $reg=App::getReg();
+            $reg->set($cat_name.'_content_cat_id',$cat_id);
             $data=self::getPageByCatId($cat_id);  
         }
         return $data;
