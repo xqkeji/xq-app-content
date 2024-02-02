@@ -1,8 +1,19 @@
 <?php
-namespace xqkeji\app\content\model\Data;
+namespace xqkeji\app\content\model;
 use xqkeji\App;
 class Data
 {
+    public static function getNameById(string $cat_id)
+    {
+        $category=Model::getModel('category','content');
+		$cat=$category->find($cat_id);
+        $name='';
+        if($cat)
+        {
+            $name=(string)$cat->getAttr('name');
+        }
+        return $name;
+    }
     public static function getRegCatId(string $cat_name)
     {
         $reg=App::getReg();
