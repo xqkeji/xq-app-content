@@ -1,5 +1,6 @@
 <?php
 namespace xqkeji\app\content\model;
+use xqkeji\mvc\builder\Model;
 use xqkeji\App;
 class Data
 {
