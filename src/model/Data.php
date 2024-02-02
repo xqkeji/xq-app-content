@@ -65,26 +65,28 @@ class Data
 		$cat=$category->where([
 			'name'=>$cat_name
 		])->find();
+        
         $data=[];
         if($cat)
         {
             $cat_id=(string)$cat->getKey();
             $reg=App::getReg();
             $reg->set($cat_name.'_content_cat_id',$cat_id);
-            $data=self::getPageByCatId($cat_id);  
+            $data=self::getPageByCatId($cat_id); 
+            
         }
         return $data;
     }
     public static function getPageByCatId(string $cat_id)
     {
-        $content=Model::getModel('page','content');
-        $row=$content->where([
+        $page=Model::getModel('page','content');
+        $row=$page->where([
             'cat_id'=>$cat_id,
         ])->find();
         $data=[];
-        if($data)
+        if($row)
         {
-            $page_content=$row->getAttr('content');
+            $content=$row->getAttr('content');
             $id=(string)$row->getKey();
             $data=[
                 'id'=>$id,
