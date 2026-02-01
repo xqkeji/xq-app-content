@@ -1,12 +1,14 @@
 <?php
-return [
-	'admin',
-	'pageSize'=>0,
-	'conditions'=>[
+namespace xqkeji\app\content\controller\category;
+use xqkeji\mvc\action\Admin as BaseAdmin;
+class Admin extends BaseAdmin
+{
+	protected $pageSize=0;
+	protected $conditions=[
 		'parent_id'=>'58514b454a495f524f4f5430',
 		'status'=>1,
-	],
-	'order'=>[
+	];
+	protected $order=[
 		'left_value'=>'asc',
-	],
-];
+	];
+}

@@ -1,300 +1,231 @@
 <?php
-return [
-	'tab_form',
-	'name'=>'category',
-	[
+namespace xqkeji\app\content\form;
+use xqkeji\form\TabForm;
+class Category extends TabForm
+{
+	protected $name = 'category';
+	protected $el=[
 		[
-			'tab',
-			'text'=>'基本信息',
+			'$tab',
 			'name'=>'category_info',
-			[
-				'template'=>'row',
-				'attr_class'=>'form-control',
-				[	
-					'text',
-					'text'=>'栏目名称',
-					'name'=>'name',
-					'validators'=>[
-						['required'],
-					],
-				],
-				[	
-					'fileinput',
-					'text'=>'栏目图片',
-					'name'=>'image',
-					'validators'=>[
-						['required'],
-					],
-				],
-				[	
-					'select',
-					'text'=>'栏目类型',
-					'name'=>'type',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('types'),
-					'filters'=>['int'],
-				],
-				'url',
-				[	
-					'select',
-					'text'=>'数据模型',
-					'name'=>'model',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('models'),
-				],
+			'text'=>'基本信息',
+			'el'=>[
+				'@Name',
 				[
-					'check',
+					'@ImageFile',
+					'text'=>'栏目图片',
+				],
+				'~Type',
+				[
+					'@Url',
+					'attrs'=>[
+						'required' => 'false',
+					],
+					'vt'=>[],
+				],
+				'~Model',
+				[
+					'@SwitchCheck',
 					'text'=>'应用到子栏目',
 					'name'=>'apply_children_model',
-					'attr_value'=>1,
-					'template'=>'switch',
-					'filters'=>['int'],
 				],
-				'switch',
-			],
+				'@SwitchCheck',
+			]
 		],
 		[
-			'tab',
+			'$tab',
 			'text'=>'SEO信息',
 			'name'=>'category_seo',
-			[
-				'template'=>'row',
-				'attr_class'=>'form-control',
-				'seo_title',
-				'seo_keyword',
-				'seo_desc',
+			'el'=>[
+				'@SeoTitle',
+				'@SeoKeyword',
+				'@SeoDesc',
 			],
 		],
 		[
-			'tab',
+			'$tab',
 			'text'=>'表单设置',
 			'name'=>'category_form',
-			[
-				'template'=>'row',
-				'attr_class'=>'form-control',
+			'el'=>[
+				'~Form',
+				'~ListForm',
+				'~SearchForm',
 				[
-					'select',
-					'text'=>'表单',
-					'name'=>'form',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('forms'),
-				],
-				[
-					'select',
-					'text'=>'列表表单',
-					'name'=>'list_form',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('list_forms'),
-				],
-				[
-					'select',
-					'text'=>'搜索表单',
-					'name'=>'search_form',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('search_forms'),
-				],
-				[
-					'check',
+					'@SwitchCheck',
 					'text'=>'应用到子栏目',
 					'name'=>'apply_children_form',
-					'attr_value'=>1,
-					'template'=>'switch',
-					'filters'=>['int'],
-					
-				],
+				]
+				
 			],
 		],
 		[
-			'tab',
+			'$tab',
 			'text'=>'模板设置',
 			'name'=>'category_view',
-			[
-				'template'=>'row',
-				'attr_class'=>'form-control',
+			'el'=>[
+				'~LayoutView',
+				'~IndexView',
+				'~CategoryView',
+				'~ListView',
+				'~SearchView',
+				'~ShowView',
 				[
-					'select',
-					'text'=>'布局模板',
-					'name'=>'layout_view',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('layout_views'),
-				],
-				[
-					'select',
-					'text'=>'首页模板',
-					'name'=>'index_view',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('index_views'),
-				],
-				[
-					'select',
-					'text'=>'栏目页模板',
-					'name'=>'category_view',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('cat_views'),
-				],
-				[
-					'select',
-					'text'=>'列表页模板',
-					'name'=>'list_view',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('list_views'),
-				],
-				[
-					'select',
-					'text'=>'搜索模板',
-					'name'=>'search_view',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('search_views'),
-				],
-				[
-					'select',
-					'text'=>'详细页模板',
-					'name'=>'show_view',
-					'attr_class'=>'form-select',
-					'items'=>xq_p('show_views'),
-				],
-				[
-					'check',
+					'@SwitchCheck',
 					'text'=>'应用到子栏目',
 					'name'=>'apply_children_view',
-					'attr_value'=>1,
-					'template'=>'switch',
-					'filters'=>['int'],
-					
-				],
+				]
 			],
 		],
 		[
-			'tab',
+			'$tab',
 			'text'=>'显示设置',
-			'name'=>'category_show',
-			[
-				
+			'name'=>'show_config',
+			'el'=>[
 				[
-					'div',
-					'attr_class'=>'form-group row',
-					[
-						'template'=>'one',
-						'attr_class'=>'form-control',
+					'~Showset',
+					'el'=>[
 						[
-							'number',
+							'~Shownum',
 							'text'=>'首页推荐数量',
-							'name'=>'i_r_num',
-							'filter'=>['int'],
-							
+							'name'=>'i_r_num',			
 						],
 						[
-							'number',
+							'~Shownum',
 							'text'=>'手机首页推荐数量',
-							'name'=>'m_i_r_num',
-							'filter'=>['int'],
+							'name'=>'m_i_r_num',			
 						],
 					],
 				],
 				[
-					'div',
-					'attr_class'=>'form-group row',
-					[
-						'template'=>'one',
-						'attr_class'=>'form-control',
+					'~Showset',
+					'el'=>[
 						[
-							'number',
+							'~Shownum',
 							'text'=>'首页栏目数量',
-							'name'=>'i_c_num',
-							'filter'=>['int'],
+							'name'=>'i_c_num',			
 						],
 						[
-							'number',
+							'~Shownum',
 							'text'=>'手机首页栏目数量',
-							'name'=>'m_i_c_num',
-							'filter'=>['int'],
+							'name'=>'m_i_c_num',			
 						],
 					],
 				],
 				[
-					'div',
-					'attr_class'=>'form-group row',
-					[
-						'template'=>'one',
-						'attr_class'=>'form-control',
+					'~Showset',
+					'el'=>[
 						[
-							'number',
+							'~Shownum',
+							'text'=>'首页栏目数量',
+							'name'=>'i_c_num',			
+						],
+						[
+							'~Shownum',
+							'text'=>'手机首页栏目数量',
+							'name'=>'m_i_c_num',			
+						],
+					],
+				],
+				[
+					'~Showset',
+					'el'=>[
+						[
+							'~Shownum',
+							'text'=>'首页栏目数量',
+							'name'=>'i_c_num',			
+						],
+						[
+							'~Shownum',
+							'text'=>'手机首页栏目数量',
+							'name'=>'m_i_c_num',			
+						],
+					],
+				],
+				[
+					'~Showset',
+					'el'=>[
+						[
+							'~Shownum',
+							'text'=>'首页分页数量',
+							'name'=>'i_page_num',			
+						],
+						[
+							'~Shownum',
+							'text'=>'手机首页分页数量',
+							'name'=>'m_i_page_num',			
+						],
+					],
+				],
+				[
+					'~Showset',
+					'el'=>[
+						[
+							'~Shownum',
 							'text'=>'列表页分页数量',
-							'name'=>'l_page_num',
-							'filter'=>['int'],
+							'name'=>'l_page_num',			
 						],
 						[
-							'number',
+							'~Shownum',
 							'text'=>'手机列表页分页数量',
-							'name'=>'m_l_page_num',
-							'filter'=>['int'],
+							'name'=>'m_l_page_num',			
 						],
 					],
 				],
 				[
-					'div',
-					'attr_class'=>'form-group row',
-					[
-						'template'=>'one',
-						'attr_class'=>'form-control',
+					'~Showset',
+					'el'=>[
 						[
-							'number',
+							'~Shownum',
 							'text'=>'列表页推荐数量',
-							'name'=>'l_r_num',
-							'filter'=>['int'],
+							'name'=>'l_r_num',			
 						],
 						[
-							'number',
+							'~Shownum',
 							'text'=>'手机列表页推荐数量',
-							'name'=>'m_l_r_num',
-							'filter'=>['int'],
+							'name'=>'m_l_r_num',			
 						],
 					],
 				],
 				[
-					'div',
-					'attr_class'=>'form-group row',
-					[
-						'template'=>'one',
-						'attr_class'=>'form-control',
+					'~Showset',
+					'el'=>[
 						[
-							'number',
+							'~Shownum',
 							'text'=>'详细页推荐数量',
 							'name'=>'d_r_num',
-							'filter'=>['int'],
 						],
 						[
-							'number',
+							'~Shownum',
 							'text'=>'手机详细页推荐数量',
 							'name'=>'m_d_r_num',
-							'filter'=>['int'],
 						],
 					],
 				],
 				[
-					'check',
+					'@SwitchCheck',
 					'text'=>'应用到子栏目',
 					'name'=>'apply_show_subcategory',
-					'attr_value'=>1,
-					'template'=>'switch',
-					'filters'=>['int'],
-					
+					'attrs'=>[	
+						'value'=>1,
+					],
 				],
 			],
 		],
-	],
-	'event'=>[
-		'beforeBind'=>function($form){
-			$controller=\xqkeji\App::getController();
-			$actionName=$controller->getActionName();
-			$data=$form->getData();
-			
-			if(!isset($data['status']))
-			{
-				$data['status']=0;
-			}
-
-			$form->setData($data);
+		'@Csrf',
+		'@SubmitReset',
+	];
+	public function beforeBind()
+	{
+		$controller=\xqkeji\App::getController();
+		$actionName=$controller->getActionName();
+		$data=$this->getData();
+		
+		if(!isset($data['status']))
+		{
+			$data['status']=0;
 		}
-	],
-];
+
+		$this->setData($data);
+	}
+}
+

@@ -1,36 +1,37 @@
 <?php
-return [
-	'submenu',
-	'order'=>[
+namespace xqkeji\app\content\controller\category;
+use xqkeji\mvc\action\Submenu as BaseSubmenu;
+class Submenu extends BaseSubmenu
+{
+	protected $order=[
 		'left_value'=>'asc',
-	],
-	'event'=>[
-		'beforeGetUrlName'=>function($obj,$menu){
+	];
+	public function beforeGetUrlName($menu)
+	{
+		$type=$menu->getAttr('type');
 			
-			$type=$menu->getAttr('type');
-			
-			switch($type)
-			{
-				case 1:
-					$obj->setUrlAction('admin');
-					$obj->setUrlController('content');
-					$obj->setLink('');
-					break;
-				case 2:
-					$obj->setUrlAction('publish');
-					$obj->setUrlController('page');
-					$obj->setLink('');
-					break;
-				case 3:
-					$url=$menu->getAttr('url');
-					$obj->setLink($url);
-					break;
-				default:
-					$obj->setUrlAction('admin');
-					$obj->setUrlController('content');
-					$obj->setLink('');
-					break;
-			}
-		},
-	],
-];
+		switch($type)
+		{
+			case 1:
+				$this->setUrlAction('admin');
+				$this->setUrlController('content');
+				$this->setLink('');
+				break;
+			case 2:
+				$this->setUrlAction('publish');
+				$this->setUrlController('page');
+				$this->setLink('');
+				break;
+			case 3:
+				$url=$menu->getAttr('url');
+				$this->setLink($url);
+				break;
+			default:
+				$this->setUrlAction('admin');
+				$this->setUrlController('content');
+				$this->setLink('');
+				break;
+		}
+	}
+}
+

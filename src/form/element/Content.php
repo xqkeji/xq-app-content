@@ -1,9 +1,8 @@
 <?php
-return [
-	'text_area',
-	'name'=>'content',
-	'text'=>'内容',
-	'attr_required'=>'1',
-	'validators'=>[['required']],
-	'filter'=>['string'],
-];
+namespace xqkeji\app\content\form\element;
+use xqkeji\form\element\Tinymce;
+class Content extends Tinymce   
+{
+    protected $name = 'content';
+    protected $text='内容';
+}
