@@ -97,6 +97,54 @@ class Install
                     }
                 }
                 $cmd = new Command([
+                    'createIndexes' => 'content_category',
+                    'indexes' => [
+                        [
+                            'name' => 'content_category_left_value',
+                            'key' => [
+                                'left_value' => 1
+                            ],
+                            'unique'=>false,
+                        ],
+                    ],
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                if (!empty($result)) {
+                    $ok = intval($result[0]->ok);
+                    if($ok>0)
+                    {
+                        echo "创建内容栏目集合left_value字段索引成功！\r\n";
+                    }
+                    else
+                    {
+                        echo "创建内容栏目集合left_value字段索引失败！\r\n";
+                    }
+                }
+                $cmd = new Command([
+                    'createIndexes' => 'content_category',
+                    'indexes' => [
+                        [
+                            'name' => 'content_category_right_value',
+                            'key' => [
+                                'right_value' => 1
+                            ],
+                            'unique'=>false,
+                        ],
+                    ],
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                if (!empty($result)) {
+                    $ok = intval($result[0]->ok);
+                    if($ok>0)
+                    {
+                        echo "创建内容栏目集合right_value字段索引成功！\r\n";
+                    }
+                    else
+                    {
+                        echo "创建内容栏目集合right_value字段索引失败！\r\n";
+                    }
+                }
+                $cmd = new Command([
                     // 集合名
                     'createIndexes' => 'content_content',
                     'indexes' => [
