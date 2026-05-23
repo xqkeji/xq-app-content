@@ -7,7 +7,8 @@
 namespace xqkeji\app\content\controller\category;
 use xqkeji\mvc\Action;
 use xqkeji\mvc\builder\Model;
-use xqkeji\mvc\model\Category;
+use xqkeji\app\content\model\Category;
+use xqkeji\App;
 class Add extends Action
 {
 
@@ -42,10 +43,11 @@ class Add extends Action
 			$content='<td><input type="checkbox" id="id_'.$catid.'" name="'.
 			$catid .'[id]" value="' .$catid .'" class="form-check-input"></td>'.
 			'<td style="text-align:left;"><input type="text" id="name_' .
-			$catid . '" name="' . $catid . '[name]" value="' .$name. '" class="form-control" style="width:200px;" required="1" ></td>'.
+			$catid . '" name="' . $catid . '[name]" value="' .$name. '" class="form-control" style="width:300px;" required="1" ></td>'.
 			'<td>栏目</td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="status_' . $catid . '" name="' . $catid . '[status]" checked=""></div></td>'.
-			'<td><input type="button" value="设置" class="btn btn-primary btn-sm xq-edit">' .
-			'<input type="button"  value="删除" class="btn btn-danger btn-sm xq-delete">' .
+			'<td><input type="button" value="复制" class="btn btn-primary btn-sm xq-copy" style="margin-right:5px;">'.
+			'<input type="button" value="设置" class="btn btn-primary btn-sm xq-edit" style="margin-right:5px;">' .
+			'<input type="button"  value="删除" class="btn btn-danger btn-sm xq-delete" style="margin-right:5px;">' .
 			'</td>';
 			$result=[
 				'id'=>(string)$model->getKey(),

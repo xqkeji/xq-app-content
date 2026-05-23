@@ -5,12 +5,17 @@ class ListName extends ListItem
 {
 	protected $name = 'list_name';
 	protected $text = '栏目';
+	protected $attrs=[
+		'style'=>'width:100%;',
+	];
 	protected $el = [
 		[
 			'$text',
 			'name'=>'name',
-			'attr_class'=>'form-control',
-			'attr_style'=>'width:200px;',
+			'attrs'=>[
+				'class'=>'form-control',
+				'style'=>'width:300px;',
+			],
 		]
 	];
 }

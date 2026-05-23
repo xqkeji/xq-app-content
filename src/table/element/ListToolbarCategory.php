@@ -1,5 +1,5 @@
 <?php
-namespace xqkeji\app\base\table\element;
+namespace xqkeji\app\content\table\element;
 use xqkeji\form\element\Td;
 class ListToolbarCategory extends Td
 {
@@ -18,6 +18,7 @@ class ListToolbarCategory extends Td
             'el' => [
                 [
 					'$button',
+					'name'=>'add',
 					'attrs'=>[
 						'id'=>'xq-add',
 						'class'=>'btn btn-primary xq-add',

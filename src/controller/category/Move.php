@@ -33,7 +33,7 @@ class Move extends Action
 				{
 					throw new \Exception(App::t("the category is not found"),404);
 				}
-				call_user_func_array([$row, "move"], [$parent_id,$next_id]);
+				$row = call_user_func_array([$row, "move"], [$parent_id,$next_id]);	
 			}
 			else
 			{
@@ -44,7 +44,7 @@ class Move extends Action
 				'id'=>(string)$row->getKey(),
 				'name'=>$row->getAttr('name'),
 				'depth'=>$row->getAttr('depth'),
-				'pid'=>$data['pid'],
+				'pid'=>$row->getAttr('parent_id'),
 				'success'=>true,
 				'code'=>200,
 				'message'=>'栏目移动成功',

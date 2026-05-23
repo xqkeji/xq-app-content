@@ -11,6 +11,7 @@ class ListCopySetDelete extends ListItem
 	protected $el=[
 		[
 			'$button',
+			'name'=>'copy',
 			'attrs'=>[
 				'class'=>'btn btn-primary btn-sm xq-copy',
 				'style'=>'margin-right:5px;',
@@ -20,7 +21,7 @@ class ListCopySetDelete extends ListItem
 		],
 		[
 			'$button',
-			
+			'name'=>'setting',
 			'attrs'=>[
 				'id'=>'xq-treegrid-edit',
 				'class'=>'btn btn-primary btn-sm xq-edit',
@@ -30,6 +31,7 @@ class ListCopySetDelete extends ListItem
 		],
 		[
 			'$button',
+			'name'=>'delete',
 			'attrs'=>[
 				'id'=>'xq-treegrid-delete',
 				'class'=>'btn btn-danger btn-sm xq-delete',
