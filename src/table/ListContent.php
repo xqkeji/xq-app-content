@@ -1,7 +1,7 @@
 <?php
 namespace xqkeji\app\content\table;
-use xqkeji\form\ListForm;
-class ListContent extends ListForm
+use xqkeji\form\Table;
+class ListContent extends Table
 {
 	protected $name = 'list_content';
 	protected $foot='@ListFoot';

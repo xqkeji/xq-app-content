@@ -5,7 +5,7 @@ class Admin extends BaseAdmin
 {
 	public function beforeRun()
 	{
-		$params=xqkeji\App::getActionParams();
+		$params=\xqkeji\App::getActionParams();
 		$cat_id='';
 		if(isset($params[0]))
 		{

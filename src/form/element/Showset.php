@@ -1,5 +1,5 @@
 <?php
-namespace xqkeji\app\base\form\element;
+namespace xqkeji\app\content\form\element;
 use xqkeji\form\element\Div;
 class Showset extends Div
 {

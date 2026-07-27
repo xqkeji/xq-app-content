@@ -16,6 +16,6 @@ class CategoryView extends Select
 
     public function beforeRender()
     {
-        $this->items = xq_p('category_views');
+        $this->items = xq_p('cat_views');
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace xqkeji\app\base\form\element;
+namespace xqkeji\app\content\form\element;
 use xqkeji\form\element\Number;
 class Shownum extends Number
 {
@@ -13,5 +13,5 @@ class Shownum extends Number
     protected $vt = [['required']];
     protected $filters = ['int'];
     protected $defaultValue = 0;
-    protected $template = '~one';
+    protected $template = 'one';
 }

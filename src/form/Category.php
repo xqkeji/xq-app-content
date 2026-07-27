@@ -83,6 +83,7 @@ class Category extends TabForm
 			'el'=>[
 				[
 					'~Showset',
+					'name'=>'i_r_num_set',
 					'el'=>[
 						[
 							'~Shownum',
@@ -98,6 +99,7 @@ class Category extends TabForm
 				],
 				[
 					'~Showset',
+					'name'=>'i_c_num_set',
 					'el'=>[
 						[
 							'~Shownum',
@@ -113,36 +115,7 @@ class Category extends TabForm
 				],
 				[
 					'~Showset',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'首页栏目数量',
-							'name'=>'i_c_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机首页栏目数量',
-							'name'=>'m_i_c_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'首页栏目数量',
-							'name'=>'i_c_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机首页栏目数量',
-							'name'=>'m_i_c_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
+					'name'=>'i_page_num_set',
 					'el'=>[
 						[
 							'~Shownum',
@@ -158,6 +131,7 @@ class Category extends TabForm
 				],
 				[
 					'~Showset',
+					'name'=>'l_page_num_set',
 					'el'=>[
 						[
 							'~Shownum',
@@ -173,6 +147,7 @@ class Category extends TabForm
 				],
 				[
 					'~Showset',
+					'name'=>'l_r_num_set',
 					'el'=>[
 						[
 							'~Shownum',
@@ -188,6 +163,7 @@ class Category extends TabForm
 				],
 				[
 					'~Showset',
+					'name'=>'d_r_num_set',
 					'el'=>[
 						[
 							'~Shownum',

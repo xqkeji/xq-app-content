@@ -5,10 +5,6 @@ class CatId extends Hidden
 {
     protected $name = 'cat_id';
 
-    public function beforeRender()
-    {
-        $this->items = xq_p('types');
-    }
 
     public function format($value)
     {
