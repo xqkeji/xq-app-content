@@ -4,6 +4,7 @@ return [
 		'auth'=>[
 			'category'=>['admin','edit','delete','change','add','move'],
 			'content'=>['admin','add','edit','delete','change','b_delete'],
+			'content_type'=>['admin','add','edit','delete','change','b_delete'],
 			'page'=>['publish'],
 		],
 		'login'=>[

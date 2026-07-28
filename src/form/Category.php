@@ -23,11 +23,11 @@ class Category extends TabForm
 					],
 					'vt'=>[],
 				],
-				'~Model',
+				'~ContentType',
 				[
 					'@SwitchCheck',
 					'text'=>'应用到子栏目',
-					'name'=>'apply_children_model',
+					'name'=>'apply_children',
 				],
 				'@SwitchCheck',
 			]
@@ -42,151 +42,7 @@ class Category extends TabForm
 				'@SeoDesc',
 			],
 		],
-		[
-			'$tab',
-			'text'=>'表单设置',
-			'name'=>'category_form',
-			'el'=>[
-				'~Form',
-				'~ListForm',
-				'~SearchForm',
-				[
-					'@SwitchCheck',
-					'text'=>'应用到子栏目',
-					'name'=>'apply_children_form',
-				]
-				
-			],
-		],
-		[
-			'$tab',
-			'text'=>'模板设置',
-			'name'=>'category_view',
-			'el'=>[
-				'~LayoutView',
-				'~IndexView',
-				'~CategoryView',
-				'~ListView',
-				'~SearchView',
-				'~ShowView',
-				[
-					'@SwitchCheck',
-					'text'=>'应用到子栏目',
-					'name'=>'apply_children_view',
-				]
-			],
-		],
-		[
-			'$tab',
-			'text'=>'显示设置',
-			'name'=>'show_config',
-			'el'=>[
-				[
-					'~Showset',
-					'name'=>'i_r_num_set',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'首页推荐数量',
-							'name'=>'i_r_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机首页推荐数量',
-							'name'=>'m_i_r_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
-					'name'=>'i_c_num_set',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'首页栏目数量',
-							'name'=>'i_c_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机首页栏目数量',
-							'name'=>'m_i_c_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
-					'name'=>'i_page_num_set',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'首页分页数量',
-							'name'=>'i_page_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机首页分页数量',
-							'name'=>'m_i_page_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
-					'name'=>'l_page_num_set',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'列表页分页数量',
-							'name'=>'l_page_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机列表页分页数量',
-							'name'=>'m_l_page_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
-					'name'=>'l_r_num_set',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'列表页推荐数量',
-							'name'=>'l_r_num',			
-						],
-						[
-							'~Shownum',
-							'text'=>'手机列表页推荐数量',
-							'name'=>'m_l_r_num',			
-						],
-					],
-				],
-				[
-					'~Showset',
-					'name'=>'d_r_num_set',
-					'el'=>[
-						[
-							'~Shownum',
-							'text'=>'详细页推荐数量',
-							'name'=>'d_r_num',
-						],
-						[
-							'~Shownum',
-							'text'=>'手机详细页推荐数量',
-							'name'=>'m_d_r_num',
-						],
-					],
-				],
-				[
-					'@SwitchCheck',
-					'text'=>'应用到子栏目',
-					'name'=>'apply_show_subcategory',
-					'attrs'=>[	
-						'value'=>1,
-					],
-				],
-			],
-		],
+		
 		'@Csrf',
 		'@SubmitReset',
 	];

@@ -21,7 +21,7 @@ return [
     'content module category b_delete auth'=>'批量删除栏目',
 	'content module category move auth'=>'移动栏目',
 
-	//栏目管理页面
+	//内容管理页面
 	'content content admin title'=>'内容管理',
 	'content content add title'=>'添加内容',
 	'content content edit title'=>'编辑内容',
@@ -31,7 +31,7 @@ return [
 	'content content edit failed'=>'编辑内容失败',
 	'content content delete success'=>'删除内容成功',
 	'content content delete failed'=>'删除内容失败',
-	//栏目管理页面
+	//内容管理页面
 	'content module content auth'=>'内容管理',
 	'content module content admin auth'=>'内容管理',
 	'content module content add auth'=>'添加内容',
@@ -39,6 +39,26 @@ return [
 	'content module content delete auth'=>'删除内容',
 	'content module content change auth'=>'修改内容状态',
 	'content module content b_delete auth'=>'批量删除内容',
+	
+	//内容类型管理页面
+	'content content_type admin title'=>'内容类型管理',
+	'content content_type add title'=>'添加内容类型',
+	'content content_type edit title'=>'编辑内容类型',
+	'content content_type add success'=>'添加内容类型成功',
+	'content content_type add failed'=>'添加内容类型失败',
+	'content content_type edit success'=>'编辑内容类型成功',
+	'content content_type edit failed'=>'编辑内容类型失败',
+	'content content_type delete success'=>'删除内容类型成功',
+	'content content_type delete failed'=>'删除内容类型失败',
+	//内容类型管理页面
+	'content module content auth'=>'内容管理',
+	'content module content admin auth'=>'内容管理',
+	'content module content add auth'=>'添加内容',
+	'content module content edit auth'=>'编辑内容',
+	'content module content delete auth'=>'删除内容',
+	'content module content change auth'=>'修改内容状态',
+	'content module content b_delete auth'=>'批量删除内容',
+	
 	//单页管理
 	'content module page auth'=>'单页管理',
 	'content module page publish auth'=>'单页发布权限',
