@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace xqkeji\app\content\table\element;
 use xqkeji\form\element\ListFoot;
 class FootCategory extends ListFoot

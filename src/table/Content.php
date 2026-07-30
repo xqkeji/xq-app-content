@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace xqkeji\app\content\table;
 use xqkeji\form\Table;
 class Content extends Table
@@ -8,7 +8,7 @@ class Content extends Table
 	protected $el=[
 		'@Id',
 		['$ListItem','text'=>'标题','name'=>'title'],
-		'@Switch',
+		'@SwitchCheck',
 		'@CreateTime',
 		'@UpdateTime',
 		'@EditDelete',

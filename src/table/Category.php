@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace xqkeji\app\content\table;
 use xqkeji\form\TreegridTable;
 class Category extends TreegridTable
@@ -9,7 +9,7 @@ class Category extends TreegridTable
 		'@Id',
 		'~Name',
 		'~Type',
-		'@Switch',
+		'@SwitchCheck',
 		'~CopySetDelete',
 	];
 }

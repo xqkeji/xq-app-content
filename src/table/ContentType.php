@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace xqkeji\app\content\table;
 use xqkeji\form\Table;
 class ContentType extends Table
@@ -15,7 +15,7 @@ class ContentType extends Table
 			],
 		],
 		'@Title',
-		'@Switch',
+		'@SwitchCheck',
 		'@Ordernum',
 		'@CreateTime',
 		'@UpdateTime',
@@ -24,4 +24,3 @@ class ContentType extends Table
 	protected $isDrag=true;
 	protected $xqUrl='/content/content_type/b_order';
 }
-
