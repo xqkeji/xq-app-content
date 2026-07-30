@@ -1,24 +1,21 @@
 <?php
 namespace xqkeji\app\content\controller\content;
-use xqkeji\mvc\action\Admin as BaseAdmin;
+use xqkeji\mvc\action\Edit as BaseEdit;
 use xqkeji\mvc\builder\Model;;
-class Admin extends BaseAdmin
+class Edit extends BaseEdit
 {
 	public function beforeRun()
 	{
 		$params=\xqkeji\App::getActionParams();
-		$cat_id='';
+		$id='';
 		if(isset($params[0]))
 		{
-			$cat_id=$params[0];
+			$id=$params[0];
 		}
+		$model=Model::getModel('content');
+		$content=$model->find($id);
+		$cat_id=$content->getAttr('cat_id');
 		
-		$this->setConditions([
-			['cat_id','=',$cat_id],
-		]);
-		$this->setOrder([
-			'ordernum'=>'asc',
-		]);
 		$model=Model::getModel('category');
 		$category=$model->find($cat_id);
 		$content_type=$category->getAttr('content_type');

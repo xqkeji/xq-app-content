@@ -22,9 +22,9 @@ class Page extends TabForm
 			'text'=>'SEO信息',
 			'name'=>'page_seo',
 			'el'=>[
-				'~SeoTitle',
-				'~SeoKeyword',
-				'~SeoDesc',
+				'@SeoTitle',
+				'@SeoKeyword',
+				'@SeoDesc',
 			],
 		],
 		'@Csrf',
@@ -32,7 +32,7 @@ class Page extends TabForm
 	];
 	public function beforeRender()
 	{
-		$params=xqkeji\App::getActionParams();
+		$params=\xqkeji\App::getActionParams();
 		$cat_id='';
 		if(isset($params[0]))
 		{

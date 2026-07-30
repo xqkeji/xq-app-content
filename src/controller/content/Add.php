@@ -1,8 +1,8 @@
 <?php
 namespace xqkeji\app\content\controller\content;
-use xqkeji\mvc\action\Admin as BaseAdmin;
+use xqkeji\mvc\action\Add as BaseAdd;
 use xqkeji\mvc\builder\Model;;
-class Admin extends BaseAdmin
+class Add extends BaseAdd
 {
 	public function beforeRun()
 	{
@@ -12,13 +12,6 @@ class Admin extends BaseAdmin
 		{
 			$cat_id=$params[0];
 		}
-		
-		$this->setConditions([
-			['cat_id','=',$cat_id],
-		]);
-		$this->setOrder([
-			'ordernum'=>'asc',
-		]);
 		$model=Model::getModel('category');
 		$category=$model->find($cat_id);
 		$content_type=$category->getAttr('content_type');

@@ -3,6 +3,7 @@ namespace xqkeji\app\content\model;
 use xqkeji\mvc\model\Category as BaseCategory;
 use MongoDB\BSON\ObjectID;
 use MongoDB\Driver\BulkWrite;
+use xqkeji\Event;
 use xqkeji\App;
 class Category extends BaseCategory
 {
@@ -46,5 +47,43 @@ class Category extends BaseCategory
 			
 			return true;
 		}
+	}
+	public function beforeDelete($data=null)
+	{
+		$modelName=$this->getAttr('model');
+		$infoModel=Model::getModel($modelName);
+		$result=$infoModel->find();
+		return false;
+	}
+	public function beforeWrite($data=null)
+	{
+		unset($this['apply_children']);
+	}
+    public function afterWrite($data=null)
+	{
+		Event::deny($this,'beforeWrite');
+		Event::deny($this,'afterWrite');
+		$container=App::getContainer();
+		$request=$container->get("request");
+		$post = $request->getPost();
+		$subTree=$this->getSubTree();
+		
+		
+		if(isset($post['apply_children']))
+		{
+			unset($post['apply_children']);
+			if(!empty($subTree))
+			{
+				foreach($subTree as $cat)
+				{
+					$cat->setAttr('content_type',$this->getAttr('content_type'));
+					$cat->setAttr('type',$this->getAttr('type'));
+					$cat->setAttr('status',$this->getAttr('status'));
+					$cat->save();
+				}
+			}
+		}
+		Event::allow($this,'beforeWrite');
+		Event::allow($this,'afterWrite');
 	}
 }
