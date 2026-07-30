@@ -15,6 +15,7 @@ class ContentType extends Form
 			'text'=>'中文名称',
 		],
 		'@Desc',
+		'@Ordernum',
 		'@SwitchCheck',
 		'@Csrf',
 		'@SubmitReset',

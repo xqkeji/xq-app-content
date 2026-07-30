@@ -172,6 +172,56 @@ class Install
                     }
                 }
                 //end
+                //创建content_content_type集合name字段唯一索引
+                $cmd = new Command([
+                    'createIndexes' => 'content_content_type',
+                    'indexes' => [
+                        [
+                            'name' => 'content_content_type_name',
+                            'key' => [
+                                'name' => 1,
+                            ],
+                            'unique'=>true,
+                        ],
+                    ],
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                if (!empty($result)) {
+                    $ok = intval($result[0]->ok);
+                    if($ok>0)
+                    {
+                        echo "创建内容类型集合name字段唯一索引成功！\r\n";
+                    }
+                    else
+                    {
+                        echo "创建内容类型集合name字段唯一索引失败！\r\n";
+                    }
+                }
+                //检查并插入默认内容类型
+                $filter = ['name' => 'content'];
+                $cmd = new Command([
+                    'count' => 'content_content_type',
+                    'query' => $filter
+                ]);
+                $result = $manager->executeCommand($database, $cmd)->toArray();
+                $typeCount = 0;
+                if (!empty($result)) {
+                    $typeCount = intval($result[0]->n);
+                }
+                if($typeCount === 0)
+                {
+                    $bulk = new BulkWrite();
+                    $bulk->insert([
+                        'name' => 'content',
+                        'title' => '默认类型',
+                        'desc' => '表单和模板根据name字段值绑定为content',
+						'ordernum'=>1,
+                        'create_time' => time(),
+                        'update_time' => time(),
+                    ]);
+                    $manager->executeBulkWrite($database.'.content_content_type', $bulk);
+                    echo "初始化content_content_type,创建默认类型成功！\r\n";
+                }
                 //创建根节点
                 $id = new ObjectId("58514b454a495f524f4f5430");
                 $filter = ['_id' => $id];
@@ -196,20 +246,11 @@ class Install
                         'image'=>'',
                         'type'=>1,
                         'url'=>'',
-                        'model'=>'info',
+                        'content_type'=>'content',
                         'status'=>1,
                         'seo_title'=>'',
                         'seo_keyword'=>'',
                         'seo_desc'=>'',
-                        'form'=>'info',
-                        'list_form'=>'list_info',
-                        'search_form'=>'search_info',
-                        'layout_view'=>'layout_info',
-                        'index_view'=>'index_info',
-                        'category_view'=>'cat_info',
-                        'list_view'=>'list_info',
-                        'search_view'=>'search_info',
-                        'show_view'=>'show_info',
                         'hits'=>0,
                         'parent_id'=>'',
                         'depth'=>0,

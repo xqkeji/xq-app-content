@@ -11,13 +11,12 @@ class ContentType extends Select
     ];
     protected $filters = ['string'];
     protected $vt = [['required']];
-    protected $defaultValue = 'info';
     protected $template = '@row';
 
     public function beforeRender()
     {
         $model=\xqkeji\mvc\builder\Model::getModel('content_type');
-		$type=$model->where('status',1)->order('ordernum')->select();
+		$type=$model->where('status',1)->order('ordernum','asc')->select();
 		$items=$type->all();
 		$rows=[];
 		if(!empty($items))
