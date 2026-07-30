@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 namespace xqkeji\app\content\table\element;
 use xqkeji\form\element\ListItem;
-class ListName extends ListItem
+class Name extends ListItem
 {
 	protected $name = 'list_name';
 	protected $text = '栏目';

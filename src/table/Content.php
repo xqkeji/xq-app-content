@@ -1,17 +1,17 @@
-<?php
+﻿<?php
 namespace xqkeji\app\content\table;
 use xqkeji\form\Table;
-class ListContent extends Table
+class Content extends Table
 {
 	protected $name = 'list_content';
-	protected $foot='@ListFoot';
+	protected $foot='@Foot';
 	protected $el=[
-		'@ListId',
+		'@Id',
 		['$ListItem','text'=>'标题','name'=>'title'],
-		'@ListSwitch',
-		'@ListCreateTime',
-		'@ListUpdateTime',
-		'@ListEditDelete',
+		'@Switch',
+		'@CreateTime',
+		'@UpdateTime',
+		'@EditDelete',
 	];
 	public function beforeRender()
 	{

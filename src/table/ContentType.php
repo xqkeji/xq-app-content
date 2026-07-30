@@ -1,25 +1,25 @@
-<?php
+﻿<?php
 namespace xqkeji\app\content\table;
 use xqkeji\form\Table;
-class ListContentType extends Table
+class ContentType extends Table
 {
 	protected $name = 'list_content_type';
 	
-	protected $foot='@ListFoot';
+	protected $foot='@Foot';
 	protected $el=[
-		'@ListId',
+		'@Id',
 		[
-			'@ListName',
+			'@Name',
 			'attrs'=>[
 				'style' => 'width:120px;',
 			],
 		],
-		'@ListTitle',
-		'@ListSwitch',
-		'@ListOrdernum',
-		'@ListCreateTime',
-		'@ListUpdateTime',
-		'@ListEditDelete',
+		'@Title',
+		'@Switch',
+		'@Ordernum',
+		'@CreateTime',
+		'@UpdateTime',
+		'@EditDelete',
 	];
 	protected $isDrag=true;
 	protected $xqUrl='/content/content_type/b_order';

@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 namespace xqkeji\app\content\table\element;
 use xqkeji\form\element\Td;
-class ListToolbarCategory extends Td
+class ToolbarCategory extends Td
 {
     protected $name = "list-toolbar-category";
     protected $attrs = [

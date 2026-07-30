@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 namespace xqkeji\app\content\table\element;
 use xqkeji\form\element\ListItem;
-class ListCopySetDelete extends ListItem
+class CopySetDelete extends ListItem
 {
 	protected $name = 'list_copy_set_delete';
 	protected $text = '操作';
