@@ -20,6 +20,7 @@ class FootCategory extends ListFoot
 			],
 		],
 	];
+	protected $pager=[];
 
 }
 
