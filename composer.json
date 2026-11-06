@@ -23,6 +23,6 @@
     "require": {
         "xqkeji/xq-app-admin":"^1.0",
         "xqkeji/xq-res-treegrid":"^1.0",
-        "xqkeji/xq-res-tinymce":"^1.0"
+        "xqkeji/xq-res-hugerte":"^1.0"
     }
 }

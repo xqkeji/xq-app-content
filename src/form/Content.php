@@ -25,11 +25,7 @@ class Content extends TabForm
 			'text'=>'内容',
 			'name'=>'info_content',
 			'el'=>[
-				[
-					'$tinymce',
-					'name'=>'content',
-					'text'=>'内容',
-				]
+				'@Editor'
 			]
 		],
 		[
