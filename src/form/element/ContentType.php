@@ -10,7 +10,7 @@ class ContentType extends Select
         'required' => 'true',
     ];
     protected $filters = ['string'];
-    protected $vt = [['required']];
+    protected $vt = ['$required'];
     protected $template = '@row';
 
     public function beforeRender()

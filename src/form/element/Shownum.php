@@ -10,7 +10,7 @@ class Shownum extends Number
         'required' => 'true',
         'style' => 'width:80px;',
     ];
-    protected $vt = [['required']];
+    protected $vt = ['$required'];
     protected $filters = ['int'];
     protected $defaultValue = 0;
     protected $template = 'one';

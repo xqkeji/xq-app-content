@@ -10,7 +10,7 @@ class SearchForm extends Select
         'required' => 'true',
     ];
     protected $filters = ['int'];
-    protected $vt = [['required']];
+    protected $vt = ['$required'];
     protected $defaultValue = 1;
     protected $template = '@row';
 
